@@ -77,21 +77,34 @@ namespace Base.Lesson_5
 			{
 				Console.WriteLine(((Song)song).Lyrics);
 			}
-			/*
-			Console.WriteLine("= After arrayList.Sort ==========================");
-			songList.Sort();
-			foreach (var song in songList)
-			{
-				Console.WriteLine(((Song)song).Lyrics);
-			}
-			*/
 			Console.WriteLine("= After arrayList.RemoveAt ==========================");
 			songList.RemoveAt(songList.Count - 1);
 			foreach (var song in songList)
 			{
 				Console.WriteLine(((Song)song).Lyrics);		//Явное указание типа объекта
 			}
-			//var arraySorted = from str in arrayList orderby arrayList.
+			Console.ReadLine();
+		}
+		static public void B7_P3_5_GenericListOfSongsSort()
+		{
+			List<Song> songList = new List();
+			for (int i = 5; i > 0; i--)
+			{
+				Console.WriteLine($"Введите текст добавляемой песни. Осталось добавить песен - {i}");
+				Console.Write(" >> ");
+				songList.Add(new Song(Console.ReadLine()));
+			}
+			Console.WriteLine("= After arrayList.Add ==========================");
+			foreach (var song in songList)
+			{
+				Console.WriteLine(song.Lyrics);
+			}
+			Console.WriteLine("= After arrayList.RemoveAt ==========================");
+			songList.RemoveAt(songList.Count - 1);
+			foreach (var song in songList)
+			{
+				Console.WriteLine(song.Lyrics);		//Явное указание типа объекта
+			}
 			Console.ReadLine();
 		}
 	}
