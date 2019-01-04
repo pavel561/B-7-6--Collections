@@ -12,7 +12,9 @@ namespace Base.Lesson_5
         static void Main(string[] args)
         {
 			//Practice.B7_P1_5_ArrayListPoemSort();
-			Practice.B7_P2_5_ArrayListOfSongsSort();
+			//Practice.B7_P2_5_ArrayListOfSongsSort();
+			//Practice.B7_P3_5_GenericListOfSongsSort();
+			Practice.B7_P4_5_GenericListOfNeighborSearch();
 			//ArrayListExample();
 			//ArrayListExample2();
 

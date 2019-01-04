@@ -87,7 +87,7 @@ namespace Base.Lesson_5
 		}
 		static public void B7_P3_5_GenericListOfSongsSort()
 		{
-			List<Song> songList = new List();
+			List<Song> songList = new List<Song>();
 			for (int i = 5; i > 0; i--)
 			{
 				Console.WriteLine($"Введите текст добавляемой песни. Осталось добавить песен - {i}");
@@ -106,6 +106,63 @@ namespace Base.Lesson_5
 				Console.WriteLine(song.Lyrics);		//Явное указание типа объекта
 			}
 			Console.ReadLine();
+		}
+		static public void B7_P4_5_GenericListOfNeighborSearch()
+		{
+			// Создаем коллекцию 
+			List<Neighbor> floorNeighbors = new List<Neighbor>();
+			// Вводим данные воображаемых соседей в коллекцию
+			Console.WriteLine($"Введите количество ваших соседей по этажу.");
+			Console.Write($" >> ");
+			int count = Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine($"Введите данные ваших соседей.");
+			for (int i = count; i > 0; i--)
+			{
+				Console.WriteLine($"Осталось ввести - {i}");
+
+				Console.Write("Введите имя соседа >> ");
+				string name = Console.ReadLine();
+
+				Console.Write("Введите номер квартиры соседа >> ");
+				int flatNumber = Convert.ToInt32(Console.ReadLine());
+
+				Console.Write("Введите номер телефона соседа >> ");
+				int phoneNumber = Convert.ToInt32(Console.ReadLine());
+
+				floorNeighbors.Add(new Neighbor(name, flatNumber, phoneNumber));
+			}
+			Console.WriteLine($"");
+			Console.WriteLine($"Поиск по номеру квартиры");
+			Console.WriteLine($"=========================");
+			Console.WriteLine($"");
+			Console.Write($"Введите номер квартиры >> ");
+			int flatNum = Convert.ToInt32(Console.ReadLine());
+
+			foreach(var sosed in floorNeighbors)
+			{
+				if(sosed.FlatNumber == flatNum)
+				{
+					Console.WriteLine($"Квартира - {sosed.FlatNumber}");
+					Console.WriteLine($"Имя соседа - {sosed.FullName}");
+					Console.WriteLine($"Номер телефона - {sosed.PhoneNumber}");
+					break;
+				}
+			}
+			Console.ReadLine();
+
+		}
+		public class Neighbor
+		{
+			public string FullName { get; set; }
+			public int FlatNumber { get; set; }
+			public int PhoneNumber { get; set; }
+
+			public Neighbor(string FullName, int FlatNumber, int PhoneNumber)
+			{
+				this.FullName = FullName;
+				this.FlatNumber = FlatNumber;
+				this.PhoneNumber = PhoneNumber;
+			}
 		}
 	}
 }
