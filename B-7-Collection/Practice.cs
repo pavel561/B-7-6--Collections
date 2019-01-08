@@ -9,15 +9,6 @@ namespace Base.Lesson_5
 {
 	class Practice
 	{
-		/*public interface IComparable
-		{
-			int CompareTo(object o);
-		}
-		public class poemArray
-		{
-			public string Text { get; set; }
-		}
-		*/
 		public static void B7_P1_5_ArrayListPoemSort()
 		{
 			
