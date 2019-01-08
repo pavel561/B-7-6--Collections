@@ -48,7 +48,7 @@ namespace Base.Lesson_5
 			//var arraySorted = from str in arrayList orderby arrayList.
 			Console.ReadLine();
 		}
-
+		//=====================================================================
 		public class Song
 		{
 			public string Name;
@@ -85,6 +85,7 @@ namespace Base.Lesson_5
 			}
 			Console.ReadLine();
 		}
+		//=====================================================================
 		static public void B7_P3_5_GenericListOfSongsSort()
 		{
 			List<Song> songList = new List<Song>();
@@ -103,10 +104,11 @@ namespace Base.Lesson_5
 			songList.RemoveAt(songList.Count - 1);
 			foreach (var song in songList)
 			{
-				Console.WriteLine(song.Lyrics);		//Явное указание типа объекта
+				Console.WriteLine(song.Lyrics);     //А здесь ЯВНОЕ указание типа объекта уже не требуется
 			}
 			Console.ReadLine();
 		}
+		//=====================================================================
 		static public void B7_P4_5_GenericListOfNeighborSearch()
 		{
 			// Создаем коллекцию 
@@ -164,5 +166,32 @@ namespace Base.Lesson_5
 				this.PhoneNumber = PhoneNumber;
 			}
 		}
+		//=====================================================================
+		static public void B7_P5_5_DictionaryOfNeighborSearch()
+		{
+			Dictionary<int, Neighbor> floorNeighbors = new Dictionary<int, Neighbor>();
+			floorNeighbors.Add(29, new Neighbor("Вася Пупкин", 29, 1234567));
+			floorNeighbors.Add(30, new Neighbor("Петя Иванов", 30, 1230000));
+			floorNeighbors.Add(31, new Neighbor("Вова Лопухов", 31, 9990088));
+
+			Console.WriteLine($"Поиск по номеру квартиры");
+			Console.WriteLine($"=========================");
+			Console.WriteLine($"");
+			Console.Write($"Введите номер квартиры >> ");
+			int flatNum = Convert.ToInt32(Console.ReadLine());
+
+			Neighbor selectedNeighbor;
+			if (floorNeighbors.TryGetValue(flatNum, out selectedNeighbor))
+			{
+				Console.WriteLine($"В квартире {flatNum} живет {selectedNeighbor.FullName}, его номер телефона - {selectedNeighbor.PhoneNumber}");
+			}
+			else
+			{
+				Console.WriteLine("Key = \"tif\" is not found.");
+			}
+			Console.ReadLine();
+		}
+
+		
 	}
 }
