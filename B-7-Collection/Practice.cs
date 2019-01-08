@@ -178,7 +178,7 @@ namespace Base.Lesson_5
 			}
 			else
 			{
-				Console.WriteLine("Key = \"tif\" is not found.");
+				Console.WriteLine("Соседей с таким номером квартиры нет !!!");
 			}
 			Console.ReadLine();
 		}
